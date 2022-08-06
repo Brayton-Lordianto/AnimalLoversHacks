@@ -58,10 +58,10 @@ def adoption_info(conn):
 
 
 
-def insert_adoption_info(conn, entry):
+def insert_adopter_info(conn, entry):
      with conn.cursor() as cur:
         cur.execute(
-           f"UPSERT INTO adoption_info (adoptorname, _petid, _petname, _pettype, _breed,  _sex, _description, _medicaldescription) VALUES ('{entry['adoptorname']}','{entry['_petid']}', '{entry[' _petname']}', '{entry['_pettype']}', '{entry['_breed']}', '{entry['_sex']}', '{entry['_description']}', '{entry['_medicaldescription']}', {entry['image_hash']}')"
+           f"UPSERT INTO adopter_info ( name, address, email, mobile_number, animal_id) VALUES ('{entry['name']}','{entry['address']}', '{entry['email']}', '{entry['mobile_number']}', '{entry['animal_id']}')"
           )
        
       
@@ -70,6 +70,24 @@ def insert_adoption_info(conn, entry):
                       cur.statusmessage)
 
      conn.commit()
+
+
+def adopter_info(conn):
+     with conn.cursor() as cur:
+        cur.execute(
+             "SELECT * FROM adopter_info"),
+      
+      
+      
+        logging.debug("create_accounts(): status message: %s",
+                      cur.statusmessage)
+
+        result = cur.fetchall()
+
+
+     conn.commit()
+
+     return result
      
 
 
