@@ -46,6 +46,16 @@ def adoption_info(conn):
         logging.debug("create_accounts(): status message: %s",
                       cur.statusmessage)
 
+        result = cur.fetchall()
+
+
+     conn.commit()
+
+     return result
+
+
+
+
 
 
 def insert_adoption_info(conn, entry):
@@ -60,7 +70,7 @@ def insert_adoption_info(conn, entry):
                       cur.statusmessage)
 
      conn.commit()
-     conn.commit()
+     
 
 
 
