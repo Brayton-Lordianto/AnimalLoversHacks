@@ -27,7 +27,7 @@ const AdoptionRecords = () => {
     const addAdoptionRecords = async () => {
         console.log(client)
         const contractQueryTx = new ContractCallQuery().setQueryPayment(new Hbar(1))
-            .setContractId('0.0.47852900')
+            .setContractId('0.0.47853641')
             .setGas(1000000)
             // .setGas(new Hbar(0.00001))
             .setFunction(
@@ -64,9 +64,9 @@ const AdoptionRecords = () => {
             );
 
         const contractQuerySubmit = await contractQueryTx.execute(client);
-        const contractQueryResult = contractQuerySubmit.getString()
+        const contractQueryResult = contractQuerySubmit.getBytes32();
         console.log(
-            contractQueryResult
+            String.fromCharCode(...contractQueryResult)
         );
         console.log(
             `- Here's the owner you asked for: ${contractQueryResult} \n`
@@ -75,7 +75,7 @@ const AdoptionRecords = () => {
     }
 
     useEffect(() => {
-        addAdoptionRecords();
+        // addAdoptionRecords();
         fetchAdoptionRecords()
     }, [])
     return (
