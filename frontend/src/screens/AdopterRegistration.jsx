@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography } from "@mui/material";
+import Thankyou from "./Thankyou";
 
 const AdopterRegistration = () => {
+  const [hasSubmitted, setHasSubmitted] = useState(false)
+
+  const handleSubmit = () => {
+    setHasSubmitted(true);
+  }
+  if (hasSubmitted) {
+    return <Thankyou />
+  }
   return (
     <>
       <Typography
@@ -51,43 +60,14 @@ const AdopterRegistration = () => {
                 required
               />
             </div>
-            <div>
-              <label
-                for="phone"
-                class="block mb-2 text-sm font-medium text-gray-900 "
-              >
-                Phone number
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                placeholder="123-45-678"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                required
-              />
-            </div>
-            <div>
-              <label
-                for="website"
-                class="block mb-2 text-sm font-medium text-gray-900"
-              >
-                Website URL
-              </label>
-              <input
-                type="url"
-                id="website"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                placeholder="flowbite.com"
-              />
-            </div>
+
           </div>
           <div class="mb-6">
             <label
               for="email"
               class="block mb-2 text-sm font-medium text-gray-900 "
             >
-              Email address
+              Email
             </label>
             <input
               type="email"
@@ -99,34 +79,40 @@ const AdopterRegistration = () => {
           </div>
           <div class="mb-6">
             <label
-              for="password"
-              class="block mb-2 text-sm font-medium text-gray-900"
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900 "
             >
-              Password
+              Phone Number
             </label>
             <input
-              type="password"
-              id="password"
+              type="tel"
+              id="phone"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="•••••••••"
+              placeholder="123-45-678"
+              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
               required
             />
+
           </div>
+
           <div class="mb-6">
             <label
-              for="confirm_password"
-              class="block mb-2 text-sm font-medium text-gray-900"
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900 "
             >
-              Confirm password
+              Address
             </label>
             <input
-              type="password"
-              id="confirm_password"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder="•••••••••"
+              type="text"
+              id="address"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              placeholder="8221 Willow Drive
+              Woodbridge, VA 22191"
               required
             />
           </div>
+
+
           <div class="flex items-start mb-6">
             <div class="flex items-center h-5">
               <input
@@ -152,7 +138,8 @@ const AdopterRegistration = () => {
             </label>
           </div>
           <button
-            type="submit"
+            onClick={handleSubmit}
+            // type="submit"
             class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
           >
             Submit

@@ -28,7 +28,7 @@ const Home = () => {
         Save animals and help them find their home
       </Typography>
       <Box m={1} display="flex" justifyContent="center" alignItems="center">
-        <Link to='animals'>
+        <Link to='/animals'>
           <Button
             variant="outlined"
             sx={{

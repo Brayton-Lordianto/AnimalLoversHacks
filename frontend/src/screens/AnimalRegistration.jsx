@@ -1,7 +1,16 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Thankyou from "./Thankyou";
 
 const AnimalRegistration = () => {
+
+  const navigate = useNavigate()
+  const handleSubmit = () => {
+    navigate('/animals');
+  }
+
   return (
     <>
       <Typography
@@ -168,7 +177,8 @@ const AnimalRegistration = () => {
           <div class="mb-6" />
 
           <button
-            type="submit"
+            onClick={handleSubmit}
+            // type="submit"
             class="text-white bg-green-500 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-full px-5 py-2.5 text-center "
           >
             Submit
