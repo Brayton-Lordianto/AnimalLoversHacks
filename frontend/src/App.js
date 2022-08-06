@@ -1,17 +1,17 @@
 import './App.css';
-import Navbar from './screens/Navbar';
+import BaseLayout from './screens/BaseLayout';
 import Home from './screens/Home';
 import AdopterRegistration from './screens/AdopterRegistration';
 import Login from './screens/Login';
 import AnimalRegistration from './screens/AnimalRegistration';
-import MainPage from './screens/MainPage';
 import { Routes, Route } from "react-router-dom";
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Animals from './screens/Animals';
 const primaryTheme = createTheme({
   palette: {
     primary: {
-      main: '#00FF29',
+      main: '#22C55E',
     },
     secondary: {
       main: '#0DFFBE',
@@ -40,19 +40,20 @@ function App() {
   return (
     < >
       <ThemeProvider theme={primaryTheme}>
-        {/* <Routes>
-          <Route path="*" element={<Home />} />
-          <Route path="Login" element={< Login />} />
-          <Route path="AnimalRegistration" element={< AnimalRegistration />} />
-          <Route path="AdopterRegistration" element={< AdopterRegistration />} />
-          <Route path="Home" element={< MainPage />} />
-        </Routes> */}
-        <Navbar />
-        <Home />
+        <BaseLayout>
+          <Routes>
+            <Route path="*" element={<Home />} />
+            <Route path="login" element={< Login />} />
+            <Route path="register-animal" element={< AnimalRegistration />} />
+            <Route path="adopt" element={< AdopterRegistration />} />
+            <Route path="animals" element={< Animals />} />
+          </Routes>
+          {/* <Home />
         <MainPage />
         <Login />
         <AdopterRegistration />
-        <AnimalRegistration />
+      <AnimalRegistration /> */}
+        </BaseLayout>
       </ThemeProvider>
     </>
   )
