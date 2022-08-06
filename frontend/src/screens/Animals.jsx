@@ -200,7 +200,7 @@ const Animals = () => {
 
         <Grid item xs={4}>
           <Card sx={{ maxWidth: 345, mt: 6, ml: 6 }}>
-            <CardActionArea>
+            <CardActionArea >
               <CardMedia
                 component="img"
                 height="100%"
