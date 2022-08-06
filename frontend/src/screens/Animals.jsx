@@ -70,12 +70,11 @@ const Animals = () => {
                   component="div"
                   color="primary"
                 >
-                  Dog
+                  Loki
                 </Typography>
 
                 <Typography variant="body2" color="blackv2">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
+                  Test Description
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -119,39 +118,39 @@ const Animals = () => {
                       </IconButton>
                     </>
                   }
-                  title="title"
+                  title="Loki"
                   subheader={
                     <>
                       <Typography variant="body2" color="text.secondary">
-                        name
+                        Type: Dog
+                      </Typography>
+
+                      <Typography variant="body2" color="text.secondary">
+                        Breed: Harrier
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Report Id: 1
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Category: 2
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        ok
+                        Gender: Male
                       </Typography>
                     </>
                   }
                 />
-                <CardMedia component="img" height="100%" alt="Report Image" />
-                <CardMedia
-                  component="img"
-                  style={{ height: 100, width: 100 }}
-                  // src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                  alt="green iguana"
-                />
+                <div >
+
+                  <CardMedia
+                    className='mx-auto w-full '
+                    component="img"
+                    style={{ height: 200, width: 200 }}
+                    // src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
+                    alt="green iguana"
+                  />
+                </div>
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
-                    Hello
+                    Test Description
                   </Typography>
                   <Typography paragraph>
-                    If there is any note that is provided by the doctor; it goes
-                    here!!
+                    This is dummy medical description.
                   </Typography>
                 </CardContent>
               </Card>
