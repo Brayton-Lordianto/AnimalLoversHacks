@@ -11,7 +11,8 @@ import RealityKit
 
 struct ContentView : View {
     var body: some View {
-        return ARViewContainer().edgesIgnoringSafeArea(.all)
+//        return ARViewContainer().edgesIgnoringSafeArea(.all)
+        TestListAllView()
     }
 }
 
