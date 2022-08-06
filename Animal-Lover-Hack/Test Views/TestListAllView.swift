@@ -11,11 +11,14 @@ struct TestListAllView: View {
     var vm = ViewModel()
     var body: some View {
         NavigationView {
-            List(vm.echoModels, id: \.storageFileID) { echomodel in
+            List(vm.echoModels) { echomodel in
                 Text(echomodel.name)
                 Text(echomodel.filename)
                 Text(echomodel.pathToDownloaded.description)
                 Text(echomodel.description)
+            }
+            .onAppear {
+                print(vm.echoModels.map { $0.id })
             }
         }
     }

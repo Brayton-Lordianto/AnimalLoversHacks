@@ -14,7 +14,7 @@ class EchoUsdzFileManager {
         try! FileManager.default.url(for: .documentDirectory,in: .userDomainMask,appropriateFor: nil,create: false)
     }
     
-    static func getAsModelEntity(_ name: String = "bird.usdz") -> ModelEntity? {
+    static func getAsModelEntity(_ name: String) -> ModelEntity? {
         guard let entity = getUsdzEntity(name) else { print("DEBUG: failed to fetch entity. "); return nil }
         
         // Scaling entity to a reasonable size
@@ -51,11 +51,12 @@ class EchoUsdzFileManager {
         return (savedPath, false)
     }
 
-    static func getUsdzEntity(_ name: String = "bird.usdz") -> Entity? {
+    static func getUsdzEntity(_ name: String) -> Entity? {
         let tuple = getPathIfExists(fileName: name)
         
         // if exists, create a entity with the loaded url
-        guard tuple.1 else { return nil }
+        // if not, download the file
+        if !tuple.1 { downloadOne(name: name) }
         do {
             let entity = try Entity.load(contentsOf: tuple.0)
             print("DEBUG: success loading \(name)")
@@ -65,22 +66,28 @@ class EchoUsdzFileManager {
         return nil
     }
     
-    static func downloadOne(name: String = "bird.usdz", urlString: String = "https://console.echoar.xyz/query?key=fragrant-sky-0288&file=8ac12f6d-ba70-4d6a-a648-cd0d394ecbc6.usdz") {
+    static func downloadOne(name: String, urlString: String = "https://console.echoar.xyz/query?key=weathered-sun-1162&file=") {
+        let urlString = urlString + name
+        
+        // add a sem
+        let sem = DispatchSemaphore.init(value: 0)
         
         // check if it is a usdz
         guard urlString.hasSuffix(".usdz"), let url = URL(string: urlString)
-            else { print("DEBUG: no usdz file"); return }
-        print("DEBUG: usdz found")
+            else { print("DEBUG: no usdz file for ](urlString"); return }
+        print("DEBUG: \(urlString) found online")
         
         // get the path url and only continue if it is not cached
         let tuple = getPathIfExists(fileName: name)
         let fileExists = tuple.1
-        guard !fileExists else { return }
+        guard !fileExists else { print("DEBUG: FILE ALREADY EXISTS. DOWNLOADING SKIPPED."); return }
         let savedPath = tuple.0
         
         // download from the net
         let downloadTask = URLSession.shared.downloadTask(with: url) {
             urlOrNil, responseOrNil, errorOrNil in
+            defer { sem.signal() }
+            
             // handle actual downloading
             guard let fileURL = urlOrNil else { return }
             do {
@@ -90,6 +97,8 @@ class EchoUsdzFileManager {
             } catch { print ("DEBUG: File Error: \(error)") }
         }
         downloadTask.resume()
+        
+        sem.wait()
     }
 }
 

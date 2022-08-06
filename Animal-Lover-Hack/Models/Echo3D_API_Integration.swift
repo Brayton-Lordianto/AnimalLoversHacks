@@ -49,11 +49,12 @@ func encodeIntoModel(_ data: NSDictionary?) {
         guard
             let hologram = singleEntry["hologram"] as? NSDictionary,
             let filename = hologram["filename"] as? String,
-            let storageID = hologram["storageID"] as? String
+            let storageID = hologram["storageID"] as? String,
+            let id = key as? String
         else { print("DEBUG: NO FILE FOUND"); return }
         let additionalData = singleEntry["additionalData"] as? NSDictionary
         let description = additionalData?["entryComment"] as? String ?? "No Description"
-        let data = EchoModel(filename: filename, storageFileID: storageID, description: description)
+        let data = EchoModel(id: id, filename: filename, storageFileID: storageID, description: description)
         
         // store that data into a result
         models.append(data)
@@ -62,3 +63,4 @@ func encodeIntoModel(_ data: NSDictionary?) {
     
     // once everything is done, then give the signal
 }
+

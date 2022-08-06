@@ -23,7 +23,8 @@ class ViewModel: ObservableObject {
     }
 }
 
-struct EchoModel {
+struct EchoModel: Identifiable {
+    var id: String
     var name: String {
         guard filename.hasSuffix(".usdz") else { return "No USDZ File" }
         let suffixIndex = filename.index(filename.endIndex, offsetBy: -5)
