@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import CancelIcon from "@mui/icons-material/Cancel";
+import QRCode from "react-qr-code";
 import {
   Grid,
   Box,
@@ -15,6 +16,9 @@ import {
   IconButton,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+
+
+const MODEL_ID = '28f5fe9c-f1df-405c-b543-de56956e299f'
 
 
 
@@ -59,7 +63,8 @@ const Animals = () => {
               <CardMedia
                 component="img"
                 height="100%"
-                src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
+                src="https://live.staticflickr.com/3751/13623504344_17e61cc198_b.jpg"
+                // src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
                 // src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
                 alt="green iguana"
               />
@@ -122,11 +127,11 @@ const Animals = () => {
                   subheader={
                     <>
                       <Typography variant="body2" color="text.secondary">
-                        Type: Dog
+                        Type: Crab
                       </Typography>
 
                       <Typography variant="body2" color="text.secondary">
-                        Breed: Harrier
+                        Breed: King Crab
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         Gender: Male
@@ -136,14 +141,22 @@ const Animals = () => {
                 />
                 <div >
 
-                  <CardMedia
+                  <div style={{ height: "auto", margin: "0 auto", maxWidth: 200, width: "100%" }}>
+                    <QRCode
+                      size={256}
+                      style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                      value={MODEL_ID}
+                      viewBox={`0 0 256 256`}
+                    />
+                  </div>
+                  {/* <CardMedia
                     className='mx-auto w-full '
                     component="img"
                     style={{ height: 200, width: 200 }}
                     // src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
                     alt="green iguana"
-                  />
+                  /> */}
                 </div>
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
