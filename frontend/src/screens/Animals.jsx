@@ -52,13 +52,15 @@ const Animals = () => {
 
       </Grid>
       <Grid container>
+
         <Grid item xs={4}>
           <Card sx={{ maxWidth: 345, mt: 6, ml: 6 }}>
-            <CardActionArea>
+            <CardActionArea onClick={handleToggle}>
               <CardMedia
                 component="img"
                 height="100%"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
+                src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
+                // src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
                 alt="green iguana"
               />
               <CardContent>
@@ -70,55 +72,7 @@ const Animals = () => {
                 >
                   Dog
                 </Typography>
-                <Typography variant="body2" color="blackv2">
-                  Dogs are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions >
 
-              <Link to='/adopt'>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    ml: '130%',
-                    borderRadius: "50px",
-
-                  }}
-                >
-                  <Typography
-                    noWrap
-                    color="blackv2"
-                    position="relative"
-                    align="center"
-                  >
-                    Adopt
-                  </Typography>
-                </Button>
-              </Link>
-
-            </CardActions>
-          </Card>
-        </Grid >
-        <Grid item xs={4}>
-          <Card sx={{ maxWidth: 345, mt: 6, ml: 6 }}>
-            <CardActionArea onClick={handleToggle}>
-              <CardMedia
-                component="img"
-                height="100%"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  color="primary"
-                >
-                  Lizard
-                </Typography>
                 <Typography variant="body2" color="blackv2">
                   Lizards are a widespread group of squamate reptiles, with over
                   6,000 species, ranging across all continents except Antarctica
@@ -184,6 +138,13 @@ const Animals = () => {
                   }
                 />
                 <CardMedia component="img" height="100%" alt="Report Image" />
+                <CardMedia
+                  component="img"
+                  style={{ height: 100, width: 100 }}
+                  // src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
+                  alt="green iguana"
+                />
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
                     Hello
@@ -198,53 +159,7 @@ const Animals = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={4}>
-          <Card sx={{ maxWidth: 345, mt: 6, ml: 6 }}>
-            <CardActionArea >
-              <CardMedia
-                component="img"
-                height="100%"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  color="primary"
-                >
-                  Cat
-                </Typography>
-                <Typography variant="body2" color="blackv2">
-                  Cats are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Link to='/adopt'>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    ml: '130%',
-                    borderRadius: "50px",
 
-                  }}
-                >
-                  <Typography
-                    noWrap
-                    color="blackv2"
-                    position="relative"
-                    align="center"
-                  >
-                    Adopt
-                  </Typography>
-                </Button>
-              </Link>
-            </CardActions>
-          </Card>
-        </Grid>
       </Grid >
     </>
   );
