@@ -14,9 +14,9 @@ struct testScannerView: View {
     @State var echomodel: EchoModel? = nil
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack {
-                NavigationLink("", destination: TestLoadOneV2(echoModel: echomodel), isActive: $showSecond)
+                NavigationLink("", destination: TestPickerView(echoModel: echomodel), isActive: $showSecond)
                 CodeScannerView(codeTypes: [.qr], simulatedData: "some data") { result in
                     switch result {
                     case .failure(let error): print("DEBUG: Scanning failed: \(error.localizedDescription)")
@@ -29,7 +29,8 @@ struct testScannerView: View {
                     }
                 }
             }
-        }
+            .navigationTitle("It's as easy as a QR!")
+//        }
     }
 }
 

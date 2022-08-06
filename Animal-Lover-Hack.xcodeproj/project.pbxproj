@@ -22,6 +22,8 @@
 		419B3F16289E6E9800ECE585 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 419B3F15289E6E9800ECE585 /* CodeScanner */; };
 		419B3F19289E70C000ECE585 /* TestLoadOneV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B3F18289E70C000ECE585 /* TestLoadOneV2.swift */; };
 		419B3F1B289E7D9B00ECE585 /* TestListOneV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B3F1A289E7D9B00ECE585 /* TestListOneV2.swift */; };
+		419B3F1D289E91CE00ECE585 /* TestPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B3F1C289E91CE00ECE585 /* TestPickerView.swift */; };
+		419B3F20289EA7F000ECE585 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 419B3F1F289EA7F000ECE585 /* FocusEntity */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,7 @@
 		419B3F12289E6E0800ECE585 /* testScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testScannerView.swift; sourceTree = "<group>"; };
 		419B3F18289E70C000ECE585 /* TestLoadOneV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoadOneV2.swift; sourceTree = "<group>"; };
 		419B3F1A289E7D9B00ECE585 /* TestListOneV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListOneV2.swift; sourceTree = "<group>"; };
+		419B3F1C289E91CE00ECE585 /* TestPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419B3F20289EA7F000ECE585 /* FocusEntity in Frameworks */,
 				419B3F16289E6E9800ECE585 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +104,7 @@
 				419B3F10289E2D0200ECE585 /* TestListAllView.swift */,
 				419B3F12289E6E0800ECE585 /* testScannerView.swift */,
 				419B3F18289E70C000ECE585 /* TestLoadOneV2.swift */,
+				419B3F1C289E91CE00ECE585 /* TestPickerView.swift */,
 				419B3F1A289E7D9B00ECE585 /* TestListOneV2.swift */,
 			);
 			path = "Test Views";
@@ -133,6 +138,7 @@
 			name = "Animal-Lover-Hack";
 			packageProductDependencies = (
 				419B3F15289E6E9800ECE585 /* CodeScanner */,
+				419B3F1F289EA7F000ECE585 /* FocusEntity */,
 			);
 			productName = "Animal-Lover-Hack";
 			productReference = 419B3EF1289D736E00ECE585 /* Animal-Lover-Hack.app */;
@@ -164,6 +170,7 @@
 			mainGroup = 419B3EE8289D736E00ECE585;
 			packageReferences = (
 				419B3F14289E6E9800ECE585 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				419B3F1E289EA7F000ECE585 /* XCRemoteSwiftPackageReference "FocusEntity" */,
 			);
 			productRefGroup = 419B3EF2289D736E00ECE585 /* Products */;
 			projectDirPath = "";
@@ -195,6 +202,7 @@
 				419B3EF7289D736E00ECE585 /* ContentView.swift in Sources */,
 				419B3F06289E0D7200ECE585 /* TestLoadOneView.swift in Sources */,
 				419B3EF5289D736E00ECE585 /* AppDelegate.swift in Sources */,
+				419B3F1D289E91CE00ECE585 /* TestPickerView.swift in Sources */,
 				419B3F0B289E281900ECE585 /* Echo3DModel.swift in Sources */,
 				419B3F0D289E283200ECE585 /* Echo3D_API_Integration.swift in Sources */,
 				419B3F13289E6E0800ECE585 /* testScannerView.swift in Sources */,
@@ -419,6 +427,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		419B3F1E289EA7F000ECE585 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -426,6 +442,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 419B3F14289E6E9800ECE585 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		419B3F1F289EA7F000ECE585 /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 419B3F1E289EA7F000ECE585 /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -33,7 +33,7 @@ struct testARLoadOneV2 : UIViewRepresentable {
         
         // if the model exists, then make an ARView using this
         guard let entity = singleEntity else { print("DEBUG: NO MODEL IN ARVIEW"); return arView }
-        let anchor = AnchorEntity(plane: .horizontal)
+        let anchor = AnchorEntity()
         anchor.addChild(entity)
         arView.installGestures([.all], for: entity)
         arView.scene.addAnchor(anchor)

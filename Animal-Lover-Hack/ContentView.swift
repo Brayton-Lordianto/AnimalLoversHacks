@@ -13,8 +13,54 @@ struct ContentView : View {
     var body: some View {
 //        return ARViewContainer().edgesIgnoringSafeArea(.all)
 //        TestListAllView()
-        testScannerView()
+        NavigationView {
+            VStack {
+                NavigationLink {
+                    testScannerView()
+                } label: {
+                    VStack {
+                        textSquare()
+                            .navigationTitle("MyPets")
+                            .padding()
+                            .padding(.top, 100)
+                        
+                        Text("Click to get started")
+                            .foregroundColor(.blue)
+                            .padding(.bottom, 40)
+                    }
+                }
+
+                Form {
+                    Section {
+                        Button("Go to Website") {}
+                    }
+                    Button("Sign in to App") {}
+                }
+            }
+            .navigationTitle("MyPets")
+        }
+
+//        testScannerView()
     }
+    
+    func textSquare(val: Bool = true) -> some View {
+        VStack {
+            Image(systemName: "camera")
+                .padding(1)
+            Text("Scan \nQR Code")
+                .font(.subheadline)
+                .multilineTextAlignment(.center)
+            
+        }
+        
+            .background(
+                Rectangle()
+                    .fill(.thinMaterial)
+                    .frame(width: 100, height: 100)
+                    .cornerRadius(12).shadow(radius: 30)
+            )
+    }
+
 }
 
 struct ARViewContainer: UIViewRepresentable {
