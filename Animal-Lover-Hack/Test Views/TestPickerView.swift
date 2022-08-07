@@ -103,24 +103,37 @@ struct PickerAR: UIViewRepresentable {
 }
 
 extension TestPickerView {
+    var img: String {
+        switch echoModel?.id {
+        case "28f5fe9c-f1df-405c-b543-de56956e299f":
+            return "crab"
+        case "b6bc1813-1a6e-428f-a2c8-cd3181150db4":
+            return "bird"
+        case "e92c162c-3321-4496-bdd4-e2011519f5a1":
+            return "gecko"
+        case "85860146-0264-46a2-8265-d03e56ff5a5d":
+            return "clownfish"
+        default:
+            return ""
+        }
+    }
+    
     var picker: some View {
         VStack {
-            Spacer()
-            VStack {
-                Image(systemName: "camera")
-                    .padding(1)
-                Text("Scan \nQR Code!")
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
-                
-            }
             
+            Image(img)
+                .resizable()
+                .frame(width: 80, height: 80)
+                .aspectRatio(1.0, contentMode: .fit)
+                .cornerRadius(12)
                 .background(
                     Rectangle()
                         .fill(.thinMaterial)
                         .frame(width: 100, height: 100)
                         .cornerRadius(12).shadow(radius: 30)
                 )
+            Spacer()
+            
 //            ZStack {
 //                Rectangle()
 //                    .foregroundColor(.gray)

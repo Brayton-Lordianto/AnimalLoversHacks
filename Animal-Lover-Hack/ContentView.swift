@@ -10,6 +10,16 @@ import RealityKit
 //
 
 struct ContentView : View {
+    
+    
+    init() {
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.green] 
+
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.green]
+    }
+
     var body: some View {
 //        return ARViewContainer().edgesIgnoringSafeArea(.all)
 //        TestListAllView()
@@ -20,25 +30,38 @@ struct ContentView : View {
                 } label: {
                     VStack {
                         textSquare()
-                            .navigationTitle("MyPets")
                             .padding()
                             .padding(.top, 100)
                         
                         Text("Click to get started")
-                            .foregroundColor(.blue)
+                            .fontWeight(.black)
+                            .foregroundColor(.green)
                             .padding(.bottom, 40)
                     }
                 }
 
                 Form {
                     Section {
-                        Button("Go to Website") {}
+                        Button {
+                            
+                        } label: {
+                            Text("Go to Website").foregroundColor(.green)
+                        }
+
                     }
-                    Button("Sign in to App") {}
+                    Button {
+                        
+                    } label: {
+                        Text("Sign in to App").foregroundColor(.green)
+                    }
+
                 }
             }
-            .navigationTitle("MyPets")
-        }
+            .navigationTitle("Pet Me")
+            .background(NavigationConfigurator { nc in
+                nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.green]
+            })
+        }.tint(.green)
 
 //        testScannerView()
     }
@@ -46,8 +69,10 @@ struct ContentView : View {
     func textSquare(val: Bool = true) -> some View {
         VStack {
             Image(systemName: "camera")
+                .foregroundColor(.green)
                 .padding(1)
             Text("Scan \nQR Code")
+                .foregroundColor(.green)
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
             
@@ -90,3 +115,17 @@ struct ContentView_Previews : PreviewProvider {
     }
 }
 #endif
+
+struct NavigationConfigurator: UIViewControllerRepresentable {
+    var configure: (UINavigationController) -> Void = { _ in }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
+        UIViewController()
+    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
+        if let nc = uiViewController.navigationController {
+            self.configure(nc)
+        }
+    }
+
+}
