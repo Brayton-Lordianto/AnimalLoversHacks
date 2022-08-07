@@ -7,6 +7,8 @@ const AdopterRegistration = () => {
 
   const handleSubmit = () => {
     setHasSubmitted(true);
+    const response = fetch('http://127.0.0.1:5000/send_confirmation');
+    const data = response.json();
   }
   if (hasSubmitted) {
     return <Thankyou />

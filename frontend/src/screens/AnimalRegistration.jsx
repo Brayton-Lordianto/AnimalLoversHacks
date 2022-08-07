@@ -11,8 +11,17 @@ const AnimalRegistration = () => {
 
   const navigate = useNavigate()
   const handleSubmit = () => {
+    const response = fetch('http://127.0.0.1:5000/report_animals');
+    const data = response.json();
     navigate('/animals');
   }
+
+  const handleRegistration = () => {
+    const response = fetch('http://127.0.0.1:5000/report_animals');
+    const data = response.json();
+  }
+  
+  
 
   return (
     <>

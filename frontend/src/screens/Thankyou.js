@@ -25,8 +25,29 @@ const Thankyou = () => {
                 position="relative"
                 align="center"
             >
-                We will contact you soon..
+                We will contact you soon!
             </Typography>
+            <Box m={1} display="flex" justifyContent="center" alignItems="center">
+                <Link to='/animals'>
+                    <Button
+                        variant="outlined"
+                        sx={{
+                            mt: 10,
+                            borderRadius: "50px",
+                        }}
+                    >
+                        <Typography
+                            noWrap
+                            color="blackv2"
+                            position="relative"
+                            align="center"
+                        >
+                            View Other Animals
+                        </Typography>
+                    </Button>
+                </Link>
+            </Box>
+
             <Box m={1} display="flex" justifyContent="center" alignItems="center">
                 <Link to='/animals'>
                     <Button

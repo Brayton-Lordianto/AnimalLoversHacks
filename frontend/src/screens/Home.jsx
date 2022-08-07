@@ -25,7 +25,16 @@ const Home = () => {
         position="relative"
         align="center"
       >
-        Save animals and help them find their home
+        One million adoptable dogs and cats are euthanized in the United States every year. Our mission is to save these animals within our community. 
+      </Typography>
+      <Typography
+        variant="h6"
+        noWrap
+        color="blackv2"
+        position="relative"
+        align="center"
+      >
+        Adopt a pet and save a life. 
       </Typography>
       <Box m={1} display="flex" justifyContent="center" alignItems="center">
         <Link to='/animals'>
